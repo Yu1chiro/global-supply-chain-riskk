@@ -3,21 +3,31 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\URL; // Import di atas
 
-// Kelas AppServiceProvider: app service provider
+
 class AppServiceProvider extends ServiceProvider
 {
-    
-    // register
+    /**
+     * Register any application services.
+     */
+    /**
+     * Register any application services.
+     */
+    /**
+     * Register any application services.
+     */
     public function register(): void
     {
-        
+        //
     }
 
-    
-    // boot
-    public function boot(): void
-    {
-        
+public function boot(): void
+{
+    // Paksa HTTPS jika di production (Vercel)
+    if($this->app->environment('production')) {
+        URL::forceScheme('https');
     }
+}
+
 }
